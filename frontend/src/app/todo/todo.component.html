@@ -1,0 +1,26 @@
+<div class="container">
+  <h1 class="text-center text-light mt-5">Todo List</h1>
+
+
+  <app-create (reload)="ngOnInit()"></app-create>
+
+    <div class="w-50 mx-auto card p-4 mt-5"> 
+      <table class="table"> 
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>todo</th>
+            <th>date</th>
+            <th>status</th>
+            <th>options</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let item of todos ; let i =index">
+            <app-line [index]="i" [todo]="item" (delete)="deleteInParent($event)" (done)="endUpdate($event)"></app-line>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
